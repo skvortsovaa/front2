@@ -1,57 +1,6 @@
-/* ===== SKIP-LINK (переход к контенту) ===== */
-
-.skip-link {
-    position: absolute;
-    left: -9999px;
-    top: auto;
-    padding: 8px 14px;
-    background: #ffffff;
-    color: #000000;
-    border-radius: 999px;
-    z-index: 1000;
-    box-shadow: var(--shadow-md);
-}
-
-/* показываем только при фокусе с клавиатуры */
-.skip-link:focus-visible {
-    left: 16px;
-    top: 16px;
-}
-
-/* ===== ВИДИМЫЙ ФОКУС ДЛЯ ВСЕХ КЛИКАБЕЛЬНЫХ ЭЛЕМЕНТОВ ===== */
-
-:where(a, button, input, textarea, select) {
-    outline: none;
-}
-
-:where(a, button, input, textarea, select):focus-visible {
-    outline: 3px solid var(--color-primary);
-    outline-offset: 3px;
-    border-radius: 6px;
-}
-
-/* ===== СБРОС / БАЗА ===== */
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    line-height: 1.6;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: #111827;
-}
-
-/* ===== CSS-ПЕРЕМЕННЫЕ ===== */
+/* =========================================
+   CSS-ПЕРЕМЕННЫЕ
+========================================= */
 
 :root {
     --page-bg: #ffffff;
@@ -91,7 +40,67 @@ body {
     --font-xl: 28px;
 }
 
-/* ===== ОБЩИЙ ЛЕЙАУТ СТРАНИЦЫ ===== */
+/* =========================================
+   СБРОС / БАЗА
+========================================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.6;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--color-text);
+}
+
+/* =========================================
+   ДОСТУПНОСТЬ: SKIP-LINK + FOCUS
+========================================= */
+
+/* Skip-link */
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    padding: 8px 14px;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 999px;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+.skip-link:focus-visible {
+    left: 16px;
+    top: 16px;
+}
+
+/* Видимый фокус для интерактивных элементов */
+
+:where(a, button, input, textarea, select) {
+    outline: none;
+}
+
+:where(a, button, input, textarea, select):focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+/* =========================================
+   ОБЩИЙ ЛЕЙАУТ СТРАНИЦЫ
+========================================= */
 
 .page {
     max-width: 1100px;
@@ -103,17 +112,18 @@ body {
     isolation: isolate;
 }
 
-/* Основной контент */
 .main {
     padding: var(--space-lg);
     flex: 1;
 }
 
-/* ===== ШАПКА ===== */
+/* =========================================
+   ШАПКА
+========================================= */
 
 .header {
     background: var(--color-header-bg);
-    color: #ffffff;
+    color: var(--color-header-text);
     padding: 18px 16px;
     box-shadow: var(--shadow-sm);
 
@@ -154,22 +164,9 @@ body {
     color: #d1d5db;
 }
 
-/* Адаптив */
-
-@media (max-width: 500px) {
-    .header__content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .header__logo {
-        width: 70px;
-        height: 70px;
-    }
-}
-
-
-/* ===== НАВИГАЦИЯ ===== */
+/* =========================================
+   НАВИГАЦИЯ
+========================================= */
 
 .nav {
     background: var(--color-nav-bg);
@@ -212,29 +209,12 @@ body {
     font-weight: 600;
 }
 
-/* ===== ПРОФИЛЬ (фото + имя + группа) ===== */
-
-.profile {
-    margin-bottom: var(--space-lg);
-}
-
-.profile__card {
-    display: flex;
-    gap: var(--space-md);
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.profile__photo {
-    width: 220px;
-    height: 220px;
-    border-radius: var(--radius-md);
-    object-fit: cover;
-    box-shadow: var(--shadow-md);
-    background: #e5e7eb;
-}
+/* =========================================
+   ОБЩИЕ КОМПОНЕНТЫ
+========================================= */
 
 /* Универсальный класс для адаптивных изображений */
+
 .responsive-image {
     width: 100%;
     height: auto;
@@ -242,38 +222,7 @@ body {
     border-radius: var(--radius-md);
 }
 
-.profile__info {
-    max-width: 600px;
-}
-
-.profile__name {
-    margin: 0 0 4px 0;
-    font-size: var(--font-lg);
-}
-
-.profile__group {
-    margin: 0 0 10px 0;
-    color: var(--color-muted);
-    font-size: var(--font-sm);
-}
-
-/* ===== ОБО МНЕ ===== */
-
-.about {
-    margin-bottom: var(--space-lg);
-}
-
-.about__title {
-    margin: 0 0 8px 0;
-    font-size: 20px;
-}
-
-.about__text {
-    max-width: 700px;
-    font-size: var(--font-md);
-}
-
-/* ===== КНОПКА (используем для "Скачать резюме") ===== */
+/* Универсальная кнопка (в т.ч. "Скачать резюме" и "Связаться") */
 
 .contacts__button {
     display: inline-block;
@@ -296,7 +245,97 @@ body {
     box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4);
 }
 
-/* ===== НАВЫКИ ===== */
+/* Карточка проекта (общая) */
+
+.project-card {
+    background: var(--color-card-bg);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+.project-card__title {
+    margin: 0 0 6px 0;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.project-card__tags {
+    margin-top: 6px;
+    font-size: 13px;
+    color: var(--color-muted);
+}
+
+.project-card--link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* =========================================
+   ГЛАВНАЯ: ПРОФИЛЬ / ОБО МНЕ / НАВЫКИ / ПРОЕКТЫ
+========================================= */
+
+/* Профиль */
+
+.profile {
+    margin-bottom: var(--space-lg);
+}
+
+.profile__card {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.profile__photo {
+    width: 220px;
+    height: 220px;
+    border-radius: var(--radius-md);
+    object-fit: cover;
+    box-shadow: var(--shadow-md);
+    background: #e5e7eb;
+}
+
+.profile__info {
+    max-width: 600px;
+}
+
+.profile__name {
+    margin: 0 0 4px 0;
+    font-size: var(--font-lg);
+}
+
+.profile__group {
+    margin: 0 0 10px 0;
+    color: var(--color-muted);
+    font-size: var(--font-sm);
+}
+
+/* Обо мне */
+
+.about {
+    margin-bottom: var(--space-lg);
+}
+
+.about__title {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+}
+
+.about__text {
+    max-width: 700px;
+    font-size: var(--font-md);
+}
+
+/* Навыки */
 
 .skills {
     margin-bottom: var(--space-lg);
@@ -321,24 +360,12 @@ body {
     box-shadow: var(--shadow-sm);
 }
 
-.skill--html {
-    background: #e34c26;
-}
+.skill--html { background: #e34c26; }
+.skill--css  { background: #2563eb; }
+.skill--js   { background: #facc15; color: #1f2937; }
+.skill--git  { background: #111827; }
 
-.skill--css {
-    background: #2563eb;
-}
-
-.skill--js {
-    background: #facc15;
-    color: #1f2937;
-}
-
-.skill--git {
-    background: #111827;
-}
-
-/* ===== ПРОЕКТЫ (главная: лучшие проекты) ===== */
+/* Лучшие проекты (блок на главной) */
 
 .projects {
     margin-bottom: var(--space-lg);
@@ -355,26 +382,9 @@ body {
     gap: 16px;
 }
 
-.project-card {
-    background: var(--color-card-bg);
-    border-radius: var(--radius-md);
-    padding: 14px 16px;
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.project-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-.project-card__title {
-    margin: 0 0 6px 0;
-    font-size: 17px;
-    font-weight: 600;
-}
-
-/* ===== ПОДВАЛ ===== */
+/* =========================================
+   ПОДВАЛ
+========================================= */
 
 .footer {
     background: var(--color-header-bg);
@@ -384,54 +394,12 @@ body {
     font-size: 13px;
 }
 
-/* ===== АДАПТИВ ===== */
-
-@media (max-width: 768px) {
-    .main {
-        padding: 20px;
-    }
-
-    .profile__card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .profile__photo {
-        width: 180px;
-        height: 180px;
-    }
-}
-
-@media (max-width: 480px) {
-    .main {
-        padding: 16px;
-    }
-
-    .projects__grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* ===== ПРОЕКТЫ — СТРАНИЦА projects.html ===== */
+/* =========================================
+   СТРАНИЦА ПРОЕКТОВ (projects.html)
+========================================= */
 
 .projects-page .projects__title {
     margin-bottom: 12px;
-}
-
-/* ===== CONTAINER QUERIES ДЛЯ ПРОЕКТОВ (bonus) ===== */
-
-.projects-page {
-    container-type: inline-size;
-}
-
-/* Включаем CQ только если браузер поддерживает container-type */
-@supports (container-type: inline-size) {
-    @container (max-width: 500px) {
-        .projects-page .project-card {
-            /* на узком контейнере делаем карточки "растянутыми" */
-            text-align: left;
-        }
-    }
 }
 
 .projects__filters {
@@ -463,36 +431,35 @@ body {
     border-color: transparent;
 }
 
-/* Теги под карточкой проекта */
+/* Container queries (bonus) */
 
-.project-card__tags {
-    margin-top: 6px;
-    font-size: 13px;
-    color: var(--color-muted);
+.projects-page {
+    container-type: inline-size;
 }
 
-/* Ссылка-карточка */
-
-.project-card--link {
-    text-decoration: none;
-    color: inherit;
-    display: block;
+@supports (container-type: inline-size) {
+    @container (max-width: 500px) {
+        .projects-page .project-card {
+            text-align: left;
+        }
+    }
 }
 
-/* ===== МОДАЛЬНЫЕ ОКНА (CSS :target) ===== */
+/* =========================================
+   МОДАЛЬНЫЕ ОКНА ПРОЕКТОВ (:target)
+========================================= */
 
 .modal {
     position: fixed;
     inset: 0;
     background: rgba(15, 23, 42, 0.5);
-    display: none;               /* по умолчанию скрыто */
+    display: none;
     align-items: center;
     justify-content: center;
     padding: 16px;
     z-index: 50;
 }
 
-/* Показываем модалку, когда по id сработал :target (например, #project1) */
 .modal:target {
     display: flex;
 }
@@ -518,7 +485,7 @@ body {
     color: var(--color-muted);
 }
 
-/* Кнопка закрытия (крестик) */
+/* Кнопка закрытия */
 
 .modal__close {
     position: absolute;
@@ -543,7 +510,7 @@ body {
     color: #111827;
 }
 
-/* Картинка в модалке */
+/* Картинка и ссылки в модалке */
 
 .modal__image {
     margin: 10px 0 14px;
@@ -558,8 +525,6 @@ body {
     width: 100%;
     height: auto;
 }
-
-/* Блок ссылок в модалке */
 
 .modal__links {
     display: flex;
@@ -578,15 +543,9 @@ body {
     text-decoration: underline;
 }
 
-/* Адаптив модалки */
-
-@media (max-width: 480px) {
-    .modal__content {
-        padding: 18px 14px 14px;
-    }
-}
-
-/* ===== УЧЕБНЫЙ ДНЕВНИК (diary.html) ===== */
+/* =========================================
+   УЧЕБНЫЙ ДНЕВНИК (diary.html)
+========================================= */
 
 .diary {
     max-width: 800px;
@@ -602,8 +561,6 @@ body {
     margin: 22px 0 10px 0;
     font-size: 18px;
 }
-
-/* Список записей */
 
 .diary__list {
     display: flex;
@@ -639,8 +596,6 @@ body {
     min-width: 80px;
 }
 
-/* Статусы */
-
 .diary-item--done .diary-item__status {
     background: #dcfce7;
     color: #166534;
@@ -651,7 +606,7 @@ body {
     color: #b91c1c;
 }
 
-/* Текущие курсы */
+/* Прогресс по курсам */
 
 .courses {
     display: flex;
@@ -708,20 +663,9 @@ body {
     transform: translateY(-1px);
 }
 
-/* Адаптив дневника */
-
-@media (max-width: 600px) {
-    .diary-item {
-        grid-template-columns: 1fr;
-        text-align: left;
-    }
-
-    .diary-item__status {
-        justify-self: flex-start;
-    }
-}
-
-/* ===== КОНТАКТЫ (contacts.html) ===== */
+/* =========================================
+   КОНТАКТЫ (contacts.html)
+========================================= */
 
 .contacts {
     max-width: 900px;
@@ -739,7 +683,7 @@ body {
     color: var(--color-muted);
 }
 
-/* Сетка: слева форма, справа контакты */
+/* Сетка: форма + блок контактов */
 
 .contacts__layout {
     display: grid;
@@ -788,13 +732,11 @@ body {
     color: var(--color-accent);
 }
 
-/* показываем сообщение, если поле не прошло валидацию
-   и пользователь уже что-то с ним сделал (нет placeholder) */
+/* Показ сообщения об ошибке */
 
 .contact-form__input:invalid:not(:placeholder-shown) + .contact-form__error {
     display: block;
 }
-
 
 .contact-form__input:focus {
     outline: none;
@@ -807,7 +749,7 @@ body {
     min-height: 90px;
 }
 
-/* Блок с контактами */
+/* Блок контактов справа */
 
 .contacts-info {
     background: var(--color-card-bg);
@@ -852,13 +794,74 @@ body {
     font-size: 13px;
 }
 
-/* Адаптив контактов */
+/* =========================================
+   МЕДИА-ЗАПРОСЫ
+========================================= */
+
+/* Header mobile */
+
+@media (max-width: 500px) {
+    .header__content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .header__logo {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Общий адаптив */
+
+@media (max-width: 768px) {
+    .main {
+        padding: 20px;
+    }
+
+    .profile__card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile__photo {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+@media (max-width: 600px) {
+    .diary-item {
+        grid-template-columns: 1fr;
+        text-align: left;
+    }
+
+    .diary-item__status {
+        justify-self: flex-start;
+    }
+}
 
 @media (max-width: 800px) {
     .contacts__layout {
         grid-template-columns: 1fr;
     }
 }
+
+@media (max-width: 480px) {
+    .main {
+        padding: 16px;
+    }
+
+    .projects__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal__content {
+        padding: 18px 14px 14px;
+    }
+}
+
+/* Крупные цели клика на тач-устройствах */
 
 @media (pointer: coarse) {
     .nav__link,
