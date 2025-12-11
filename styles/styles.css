@@ -800,15 +800,21 @@ body {
 
 /* Header mobile */
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .header__content {
         flex-direction: column;
+        align-items: center;
         text-align: center;
+        gap: 10px;
     }
 
     .header__logo {
-        width: 70px;
-        height: 70px;
+        width: 74px;
+        height: 74px;
+    }
+
+    .header__name {
+        font-size: 18px;
     }
 }
 
