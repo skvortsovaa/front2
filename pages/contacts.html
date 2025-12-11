@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
     <div class="page">
         <!-- ===== ШАПКА ===== -->
         <header class="header">
@@ -38,7 +39,7 @@
         </nav>
 
         <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
-        <main class="main">
+        <main class="main" id="main-content">
             <section class="contacts">
                 <h2 class="contacts__title">Свяжитесь со мной</h2>
                 <p class="contacts__subtitle">
@@ -62,6 +63,7 @@
                                 maxlength="50"
                                 placeholder="Ваше имя"
                             >
+                            <span class="contact-form__error">Пожалуйста, введите имя (минимум 2 символа).</span>
                         </div>
 
                         <div class="contact-form__field">
@@ -77,6 +79,7 @@
                                 maxlength="100"
                                 placeholder="example@mail.ru"
                             >
+                            <span class="contact-form__error">Введите корректный email.</span>
                         </div>
 
                         <div class="contact-form__field">
@@ -93,6 +96,7 @@
                                 maxlength="1000"
                                 placeholder="Кратко опишите ваш вопрос или предложение"
                             ></textarea>
+                            <span class="contact-form__error">Сообщение не должно быть пустым.</span>
                         </div>
 
                         <button type="submit" class="contacts__button">
@@ -105,13 +109,13 @@
                         <h3 class="contacts-info__title">Контакты</h3>
                         <ul class="contacts-info__list">
                             <li class="contacts-info__item">
-                                📧 <span>Email:</span> <a href="mailto:student@edu.ru">student@edu.ru</a>
+                                <span>Email:</span> <a href="mailto:student@edu.ru">student@edu.ru</a>
                             </li>
                             <li class="contacts-info__item">
-                                💻 <span>GitHub:</span> <a href="https://github.com/skvortsovaa" target="_blank">skvortsovaa</a>
+                                <span>GitHub:</span> <a href="https://github.com/skvortsovaa" target="_blank">skvortsovaa</a>
                             </li>
                             <li class="contacts-info__item">
-                                📍 <span>Город:</span> Москва, Россия
+                                <span>Город:</span> Москва, Россия
                             </li>
                         </ul>
                         <p class="contacts-info__note">

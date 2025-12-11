@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
     <div class="page">
         <!-- ===== ШАПКА ===== -->
          <header class="header">
@@ -38,11 +39,22 @@
         </nav>
 
         <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
-        <main class="main">
+        <main class="main" id="main-content">
             <!-- БЛОК ПРОФИЛЯ (фото + имя + группа) -->
             <section class="profile">
                 <div class="profile__card">
-                    <img src="images/profile.jpg" alt="Фото студента" class="profile__photo">
+                    <img
+                        src="images/profile-800.jpg"
+                        srcset="images/profile-480.avif 480w, images/profile-800.avif 800w"
+                        sizes="(max-width: 600px) 180px, 220px"
+                        alt="Фото студента"
+                        class="profile__photo"
+                        width="220"
+                        height="220"
+                        loading="lazy"
+                    />
+
+
                     <div class="profile__info">
                         <h2 class="profile__name">Скворцов Александр</h2>
                         <p class="profile__group">Студент группы ЭФБО-07-24</p>

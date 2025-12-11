@@ -1,3 +1,35 @@
+/* ===== SKIP-LINK (переход к контенту) ===== */
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    padding: 8px 14px;
+    background: #ffffff;
+    color: #000000;
+    border-radius: 999px;
+    z-index: 1000;
+    box-shadow: var(--shadow-md);
+}
+
+/* показываем только при фокусе с клавиатуры */
+.skip-link:focus-visible {
+    left: 16px;
+    top: 16px;
+}
+
+/* ===== ВИДИМЫЙ ФОКУС ДЛЯ ВСЕХ КЛИКАБЕЛЬНЫХ ЭЛЕМЕНТОВ ===== */
+
+:where(a, button, input, textarea, select) {
+    outline: none;
+}
+
+:where(a, button, input, textarea, select):focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
 /* ===== СБРОС / БАЗА ===== */
 
 *,
@@ -68,6 +100,7 @@ body {
     background: var(--page-bg);
     display: flex;
     flex-direction: column;
+    isolation: isolate;
 }
 
 /* Основной контент */
@@ -83,6 +116,10 @@ body {
     color: #ffffff;
     padding: 18px 16px;
     box-shadow: var(--shadow-sm);
+
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 20;
 }
 
 .header__content {
@@ -682,7 +719,7 @@ body {
 
 .contacts__layout {
     display: grid;
-    grid-template-columns: 2fr 1.2fr;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 24px;
     align-items: flex-start;
 }
@@ -719,6 +756,21 @@ body {
     font-family: inherit;
     box-sizing: border-box;
 }
+
+.contact-form__error {
+    display: none;
+    margin-top: 4px;
+    font-size: 12px;
+    color: var(--color-accent);
+}
+
+/* показываем сообщение, если поле не прошло валидацию
+   и пользователь уже что-то с ним сделал (нет placeholder) */
+
+.contact-form__input:invalid:not(:placeholder-shown) + .contact-form__error {
+    display: block;
+}
+
 
 .contact-form__input:focus {
     outline: none;
