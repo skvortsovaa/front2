@@ -879,3 +879,79 @@ body {
         padding-block: 10px;
     }
 }
+
+/* Видимый и чёткий индикатор фокуса для клавиатуры */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+}
+
+/* Ссылка "перейти к основному содержимому" */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    padding: 8px 16px;
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #000000;
+    z-index: 1000;
+}
+
+.skip-link:focus-visible {
+    left: 16px;
+    top: 16px;
+}
+
+/* Визуальный и текстовый индикатор обязательных полей */
+.contact-form__required {
+    color: #b00020;           /* контрастный цвет */
+    font-weight: 600;
+}
+
+/* Ошибки под полями */
+.contact-form__error {
+    display: block;
+    margin-top: 4px;
+    font-size: 0.9rem;
+    color: #b00020;
+}
+
+/* Статус формы (aria-live) */
+.contact-form__status {
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+/* fieldset / legend оформляем аккуратно */
+.contact-form__fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-form__legend {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.contact-form__note {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+/* Текст только для скринридеров */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

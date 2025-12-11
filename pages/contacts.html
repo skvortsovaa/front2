@@ -7,28 +7,31 @@
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
+    <!-- Ссылка для перехода к основному контенту с клавиатуры -->
     <a class="skip-link" href="#main-content">Перейти к основному содержимому</a>
+
     <div class="page">
         <!-- ===== ШАПКА ===== -->
         <header class="header">
-    <div class="header__content">
-        <img
-            src="../images/icons/logo@1x.png"
-            srcset="../images/icons/logo@1x.png 1x, ../images/icons/logo@2x.png 2x"
-            width="60"
-            height="60"
-            class="header__logo"
-            alt="Личный сайт студента"
-        >
-        <div class="header__info">
-            <div class="header__name">Скворцов Александр</div>
-            <div class="header__role">Студент ЭФБО-07-24</div>
-        </div>
-    </div>
+            <div class="header__content">
+                <img
+                    src="../images/icons/logo@1x.png"
+                    srcset="../images/icons/logo@1x.png 1x, ../images/icons/logo@2x.png 2x"
+                    width="60"
+                    height="60"
+                    class="header__logo"
+                    alt="Личный сайт студента"
+                >
+                <div class="header__info">
+                    <!-- h1 для правильной иерархии заголовков -->
+                    <h1 class="header__name">Скворцов Александр</h1>
+                    <p class="header__role">Студент ЭФБО-07-24</p>
+                </div>
+            </div>
         </header>
 
         <!-- ===== НАВИГАЦИЯ ===== -->
-        <nav class="nav">
+        <nav class="nav" aria-label="Основная навигация" role="navigation">
             <ul class="nav__list">
                 <li class="nav__item">
                     <a href="../index.html" class="nav__link">Главная</a>
@@ -40,75 +43,132 @@
                     <a href="diary.html" class="nav__link">Дневник</a>
                 </li>
                 <li class="nav__item nav__item--active">
-                    <a href="contacts.html" class="nav__link">Контакты</a>
+                    <a href="contacts.html"
+                       class="nav__link"
+                       aria-current="page">
+                        Контакты
+                    </a>
                 </li>
             </ul>
         </nav>
 
         <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
         <main class="main" id="main-content">
-            <section class="contacts">
-                <h2 class="contacts__title">Свяжитесь со мной</h2>
+            <section class="contacts" aria-labelledby="contacts-title">
+                <h2 class="contacts__title" id="contacts-title">Свяжитесь со мной</h2>
                 <p class="contacts__subtitle">
                     Заполните форму, и я постараюсь ответить как можно скорее.
+                    Поля со звёздочкой обязательны для заполнения.
                 </p>
 
                 <div class="contacts__layout">
                     <!-- ФОРМА ОБРАТНОЙ СВЯЗИ -->
-                    <form class="contact-form" action="#" method="post" novalidate>
-                        <div class="contact-form__field">
-                            <label class="contact-form__label" for="name">
-                                Имя <span class="contact-form__required">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                class="contact-form__input"
-                                required
-                                minlength="2"
-                                maxlength="50"
-                                placeholder="Ваше имя"
-                            >
-                            <span class="contact-form__error">Пожалуйста, введите имя (минимум 2 символа).</span>
-                        </div>
+                    <form class="contact-form"
+                          action="#"
+                          method="post"
+                          aria-describedby="form-note"
+                          novalidate>
+                        <fieldset class="contact-form__fieldset">
+                            <legend class="contact-form__legend">
+                                Форма обратной связи
+                            </legend>
 
-                        <div class="contact-form__field">
-                            <label class="contact-form__label" for="email">
-                                Email <span class="contact-form__required">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                class="contact-form__input"
-                                required
-                                maxlength="100"
-                                placeholder="example@mail.ru"
-                            >
-                            <span class="contact-form__error">Введите корректный email.</span>
-                        </div>
+                            <!-- Текстовый индикатор обязательных полей -->
+                            <p class="contact-form__note" id="form-note">
+                                <span class="contact-form__required" aria-hidden="true">*</span>
+                                — обязательное поле.
+                            </p>
 
-                        <div class="contact-form__field">
-                            <label class="contact-form__label" for="message">
-                                Сообщение <span class="contact-form__required">*</span>
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                class="contact-form__input contact-form__input--textarea"
-                                required
-                                rows="4"
-                                minlength="5"
-                                maxlength="1000"
-                                placeholder="Кратко опишите ваш вопрос или предложение"
-                            ></textarea>
-                            <span class="contact-form__error">Сообщение не должно быть пустым.</span>
-                        </div>
+                            <!-- Имя -->
+                            <div class="contact-form__field">
+                                <label class="contact-form__label" for="name">
+                                    Имя <span class="contact-form__required" aria-hidden="true">*</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    class="contact-form__input"
+                                    required
+                                    aria-required="true"
+                                    aria-invalid="false"
+                                    aria-describedby="name-error"
+                                    minlength="2"
+                                    maxlength="50"
+                                    placeholder="Ваше имя"
+                                >
+                                <span
+                                    class="contact-form__error"
+                                    id="name-error"
+                                    hidden
+                                >
+                                    Пожалуйста, введите имя (минимум 2 символа).
+                                </span>
+                            </div>
 
-                        <button type="submit" class="contacts__button">
-                            Отправить сообщение
-                        </button>
+                            <!-- Email -->
+                            <div class="contact-form__field">
+                                <label class="contact-form__label" for="email">
+                                    Email <span class="contact-form__required" aria-hidden="true">*</span>
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    class="contact-form__input"
+                                    required
+                                    aria-required="true"
+                                    aria-invalid="false"
+                                    aria-describedby="email-error"
+                                    maxlength="100"
+                                    placeholder="example@mail.ru"
+                                >
+                                <span
+                                    class="contact-form__error"
+                                    id="email-error"
+                                    hidden
+                                >
+                                    Введите корректный email.
+                                </span>
+                            </div>
+
+                            <!-- Сообщение -->
+                            <div class="contact-form__field">
+                                <label class="contact-form__label" for="message">
+                                    Сообщение <span class="contact-form__required" aria-hidden="true">*</span>
+                                </label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    class="contact-form__input contact-form__input--textarea"
+                                    required
+                                    aria-required="true"
+                                    aria-invalid="false"
+                                    aria-describedby="message-error"
+                                    rows="4"
+                                    minlength="5"
+                                    maxlength="1000"
+                                    placeholder="Кратко опишите ваш вопрос или предложение"
+                                ></textarea>
+                                <span
+                                    class="contact-form__error"
+                                    id="message-error"
+                                    hidden
+                                >
+                                    Сообщение не должно быть пустым (минимум 5 символов).
+                                </span>
+                            </div>
+
+                            <!-- Живой регион для статуса формы -->
+                            <div class="contact-form__status"
+                                 id="form-status"
+                                 aria-live="polite">
+                            </div>
+
+                            <button type="submit" class="contacts__button">
+                                Отправить сообщение
+                            </button>
+                        </fieldset>
                     </form>
 
                     <!-- БЛОК КОНТАКТОВ -->
@@ -116,10 +176,19 @@
                         <h3 class="contacts-info__title">Контакты</h3>
                         <ul class="contacts-info__list">
                             <li class="contacts-info__item">
-                                <span>Email:</span> <a href="mailto:student@edu.ru">student@edu.ru</a>
+                                <span>Email:</span>
+                                <a href="mailto:student@edu.ru">student@edu.ru</a>
                             </li>
                             <li class="contacts-info__item">
-                                <span>GitHub:</span> <a href="https://github.com/skvortsovaa" target="_blank">skvortsovaa</a>
+                                <span>GitHub:</span>
+                                <a href="https://github.com/skvortsovaa"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    skvortsovaa
+                                    <span class="sr-only">
+                                        (ссылка откроется в новой вкладке)
+                                    </span>
+                                </a>
                             </li>
                             <li class="contacts-info__item">
                                 <span>Город:</span> Москва, Россия
@@ -139,5 +208,94 @@
             <p>© 2025 Личный сайт студента. Контакты смотрите на этой странице.</p>
         </footer>
     </div>
+
+    <!-- Простая валидация для aria-invalid + aria-live -->
+    <script>
+        (function () {
+            const form = document.querySelector('.contact-form');
+            if (!form) return;
+
+            const status = document.getElementById('form-status');
+
+            const fields = [
+                {
+                    input: document.getElementById('name'),
+                    error: document.getElementById('name-error'),
+                    validate(value) {
+                        return value.trim().length >= 2;
+                    },
+                    message: 'Пожалуйста, введите имя (минимум 2 символа).'
+                },
+                {
+                    input: document.getElementById('email'),
+                    error: document.getElementById('email-error'),
+                    validate(value) {
+                        if (!value.trim()) return false;
+                        return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value.trim());
+                    },
+                    message: 'Введите корректный email.'
+                },
+                {
+                    input: document.getElementById('message'),
+                    error: document.getElementById('message-error'),
+                    validate(value) {
+                        return value.trim().length >= 5;
+                    },
+                    message: 'Сообщение не должно быть пустым (минимум 5 символов).'
+                }
+            ];
+
+            function showError(field) {
+                field.input.setAttribute('aria-invalid', 'true');
+                field.error.hidden = false;
+                field.error.textContent = field.message;
+            }
+
+            function clearError(field) {
+                field.input.setAttribute('aria-invalid', 'false');
+                field.error.hidden = true;
+                field.error.textContent = '';
+            }
+
+            function validateField(field) {
+                const value = field.input.value;
+                if (!field.validate(value)) {
+                    showError(field);
+                    return false;
+                } else {
+                    clearError(field);
+                    return true;
+                }
+            }
+
+            // Проверка по потере фокуса
+            fields.forEach(field => {
+                field.input.addEventListener('blur', () => validateField(field));
+            });
+
+            // Проверка при отправке
+            form.addEventListener('submit', function (event) {
+                let isValid = true;
+                fields.forEach(field => {
+                    const ok = validateField(field);
+                    if (!ok && isValid) {
+                        isValid = false;
+                        field.input.focus();
+                    }
+                });
+
+                if (!isValid) {
+                    event.preventDefault();
+                    if (status) {
+                        status.textContent = 'Пожалуйста, исправьте ошибки в форме.';
+                    }
+                } else if (status) {
+                    // Здесь могла бы быть отправка формы на сервер
+                    status.textContent = 'Форма успешно проверена. Сообщение отправлено.';
+                    event.preventDefault(); // чтобы не перезагружать страницу на демо
+                }
+            });
+        })();
+    </script>
 </body>
 </html>
