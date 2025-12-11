@@ -234,6 +234,14 @@ body {
     background: #e5e7eb;
 }
 
+/* Универсальный класс для адаптивных изображений */
+.responsive-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: var(--radius-md);
+}
+
 .profile__info {
     max-width: 600px;
 }
@@ -408,6 +416,22 @@ body {
 
 .projects-page .projects__title {
     margin-bottom: 12px;
+}
+
+/* ===== CONTAINER QUERIES ДЛЯ ПРОЕКТОВ (bonus) ===== */
+
+.projects-page {
+    container-type: inline-size;
+}
+
+/* Включаем CQ только если браузер поддерживает container-type */
+@supports (container-type: inline-size) {
+    @container (max-width: 500px) {
+        .projects-page .project-card {
+            /* на узком контейнере делаем карточки "растянутыми" */
+            text-align: left;
+        }
+    }
 }
 
 .projects__filters {
@@ -833,5 +857,16 @@ body {
 @media (max-width: 800px) {
     .contacts__layout {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (pointer: coarse) {
+    .nav__link,
+    .projects__filter,
+    .contacts__button,
+    .diary__add-button,
+    .project-card--link {
+        min-height: 44px;
+        padding-block: 10px;
     }
 }

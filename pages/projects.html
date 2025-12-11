@@ -71,13 +71,13 @@
                     <a href="#project3" class="project-card project-card--link">
                         <h3 class="project-card__title">Каталог товаров</h3>
                         <p>Страница магазина с карточками товаров и разными состояниями.</p>
-                        <p class="project-card__tags">HTML • CSS • макет из практики</p>
+                        <p class="project-card__tags">HTML • CSS </p>
                     </a>
 
                     <!-- Проект 4 -->
                     <a href="#project4" class="project-card project-card--link">
-                        <h3 class="project-card__title">Интернет-магазин</h3>
-                        <p>Прототип магазина с фильтрацией и корзиной (учебный проект).</p>
+                        <h3 class="project-card__title">Каталог рецептов</h3>
+                        <p>Прототип сайта с рецептами (учебный проект).</p>
                         <p class="project-card__tags">React</p>
                     </a>
                 </div>
@@ -99,13 +99,23 @@
             <h2 class="modal__title">Личный сайт</h2>
             <p class="modal__tags">HTML • CSS</p>
             <p>
-                Учебный многостраничный сайт-портфолио, который используется для контрольных
-                работ по дисциплине «Фронтенд и бэкенд разработка». В проекте есть главная страница,
-                страница проектов, дневник и контакты.
+                Учебный многостраничный сайт. В проекте есть главная страница,
+                страница товаров, практик, новостей и контактов.
             </p>
 
             <div class="modal__image">
-                <img src="../images/project1.png" alt="Скриншот личного сайта">
+                <picture>
+                    <img
+                        src="../images/project1-800.jpg"
+                        srcset="../images/project1-480.jpg 480w, ../images/project1-800.jpg 800w"
+                        sizes="(max-width: 600px) 100vw, 600px"
+                        width="600"
+                        height="340"
+                        loading="lazy"
+                        alt="Скриншот проекта «Личный сайт»"
+                        class="responsive-image"
+                    >
+                </picture>
             </div>
 
             <div class="modal__links">
@@ -131,7 +141,18 @@
             </p>
 
             <div class="modal__image">
-                <img src="../images/project2.png" alt="Скриншот todo-приложения">
+                <picture>
+                        <img
+                            src="../images/project2-800.jpg"
+                            srcset="../images/project2-480.jpg 480w, ../images/project2-800.jpg 800w"
+                            sizes="(max-width: 600px) 100vw, 600px"
+                            width="600"
+                            height="340"
+                            loading="lazy"
+                            alt="Скриншот проекта «Todo-приложение"
+                            class="responsive-image"
+                        >
+                </picture>
             </div>
 
             <div class="modal__links">
@@ -157,15 +178,26 @@
             </p>
 
             <div class="modal__image">
-                <img src="../images/project3.png" alt="Скриншот каталога товаров">
+                <picture>
+                        <img
+                            src="../images/project3-800.jpg"
+                            srcset="../images/project3-480.jpg 480w, ../images/project3-800.jpg 800w"
+                            sizes="(max-width: 600px) 100vw, 600px"
+                            width="600"
+                            height="340"
+                            loading="lazy"
+                            alt="Скриншот проекта «Каталог товаров»"
+                            class="responsive-image"
+                        >
+                </picture>
             </div>
 
             <div class="modal__links">
-                <a href="#" target="_blank" class="contacts__button">
+                <a href="https://skvortsovaa.github.io/frontend-and-backend-practice/pages/goods_v1.html" target="_blank" class="contacts__button">
                     Живая версия
                 </a>
-                <a href="#" target="_blank" class="modal__link">
-                    Исходный код
+                <a href="https://github.com/skvortsovaa/frontend-and-backend-practice/blob/master/pages/goods_v1.html" target="_blank" class="modal__link">
+                    Исходный код на GitHub
                 </a>
             </div>
         </div>
@@ -175,23 +207,33 @@
     <div class="modal" id="project4">
         <div class="modal__content">
             <a href="projects.html" class="modal__close" aria-label="Закрыть">&times;</a>
-            <h2 class="modal__title">Интернет-магазин</h2>
+            <h2 class="modal__title">Сайт по поиску рецептов</h2> 
             <p class="modal__tags">React</p>
             <p>
-                Прототип интернет-магазина с базовой фильтрацией и корзиной. Проект
-                показывает работу с компонентами, состоянием и взаимодействием с данными.
+                React-приложение "Список рецептов"
             </p>
 
             <div class="modal__image">
-                <img src="../images/project4.png" alt="Скриншот интернет-магазина">
+                <picture>
+                        <img
+                            src="../images/project4-800.jpg"
+                            srcset="../images/project4-480.jpg 480w, ../images/project4-800.jpg 800w"
+                            sizes="(max-width: 600px) 100vw, 600px"
+                            width="600"
+                            height="340"
+                            loading="lazy"
+                            alt="Скриншот проекта «Каталог рецептов»"
+                            class="responsive-image"
+                        >
+                </picture>
             </div>
 
             <div class="modal__links">
                 <a href="#" target="_blank" class="contacts__button">
                     Живая версия
                 </a>
-                <a href="#" target="_blank" class="modal__link">
-                    Исходный код
+                <a href="https://github.com/skvortsovaa/tipkr4" target="_blank" class="modal__link">
+                    Исходный код на GitHub
                 </a>
             </div>
         </div>
