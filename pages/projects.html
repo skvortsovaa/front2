@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный сайт студента — Проекты</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="page">
+        <!-- ===== ШАПКА ===== -->
+        <header class="header">
+    <div class="header__content">
+        <img src="../images/icons/logo.png" alt="Логотип" class="header__logo">
+        <div class="header__info">
+            <div class="header__name">Скворцов Александр</div>
+            <div class="header__role">Студент ЭФБО-07-24</div>
+        </div>
+    </div>
+        </header>
+
+        <!-- ===== НАВИГАЦИЯ ===== -->
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="../index.html" class="nav__link">Главная</a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a href="projects.html" class="nav__link">Проекты</a>
+                </li>
+                <li class="nav__item">
+                    <a href="diary.html" class="nav__link">Дневник</a>
+                </li>
+                <li class="nav__item">
+                    <a href="contacts.html" class="nav__link">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+        <main class="main">
+            <section class="projects projects-page">
+                <h2 class="projects__title">Мои проекты</h2>
+
+                <!-- Фильтры (визуальные, без логики пока) -->
+                <div class="projects__filters">
+                    <button class="projects__filter projects__filter--active">Все</button>
+                    <button class="projects__filter">HTML</button>
+                    <button class="projects__filter">JS</button>
+                    <button class="projects__filter">React</button>
+                </div>
+
+                <!-- Сетка проектов -->
+                <div class="projects__grid">
+                    <!-- Проект 1 -->
+                    <a href="#project1" class="project-card project-card--link">
+                        <h3 class="project-card__title">Личный сайт</h3>
+                        <p>Многостраничное портфолио с адаптивной версткой и шапкой/футером.</p>
+                        <p class="project-card__tags">HTML • CSS</p>
+                    </a>
+
+                    <!-- Проект 2 -->
+                    <a href="#project2" class="project-card project-card--link">
+                        <h3 class="project-card__title">Todo-приложение</h3>
+                        <p>Список задач с возможностью отмечать выполнение и удалять записи.</p>
+                        <p class="project-card__tags">JavaScript</p>
+                    </a>
+
+                    <!-- Проект 3 -->
+                    <a href="#project3" class="project-card project-card--link">
+                        <h3 class="project-card__title">Каталог товаров</h3>
+                        <p>Страница магазина с карточками товаров и разными состояниями.</p>
+                        <p class="project-card__tags">HTML • CSS • макет из практики</p>
+                    </a>
+
+                    <!-- Проект 4 -->
+                    <a href="#project4" class="project-card project-card--link">
+                        <h3 class="project-card__title">Интернет-магазин</h3>
+                        <p>Прототип магазина с фильтрацией и корзиной (учебный проект).</p>
+                        <p class="project-card__tags">React</p>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <!-- ===== ПОДВАЛ ===== -->
+        <footer class="footer">
+            <p>© 2025 Личный сайт студента. Контакты смотрите на соответствующей странице.</p>
+        </footer>
+    </div>
+
+    <!-- ===== МОДАЛЬНЫЕ ОКНА (CSS :target) ===== -->
+
+    <!-- Модалка проекта 1 -->
+    <div class="modal" id="project1">
+        <div class="modal__content">
+            <a href="projects.html" class="modal__close" aria-label="Закрыть">&times;</a>
+            <h2 class="modal__title">Личный сайт</h2>
+            <p class="modal__tags">HTML • CSS</p>
+            <p>
+                Учебный многостраничный сайт-портфолио, который используется для контрольных
+                работ по дисциплине «Фронтенд и бэкенд разработка». В проекте есть главная страница,
+                страница проектов, дневник и контакты.
+            </p>
+
+            <div class="modal__image">
+                <img src="../images/project1.png" alt="Скриншот личного сайта">
+            </div>
+
+            <div class="modal__links">
+                <a href="https://skvortsovaa.github.io/frontend-and-backend-practice/" target="_blank" class="contacts__button">
+                    Живая версия
+                </a>
+                <a href="https://github.com/skvortsovaa/frontend-and-backend-practice" target="_blank" class="modal__link">
+                    Исходный код на GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модалка проекта 2 -->
+    <div class="modal" id="project2">
+        <div class="modal__content">
+            <a href="projects.html" class="modal__close" aria-label="Закрыть">&times;</a>
+            <h2 class="modal__title">Todo-приложение</h2>
+            <p class="modal__tags">JavaScript</p>
+            <p>
+                Простое веб-приложение для управления списком задач: добавление, отметка
+                выполненных задач и удаление. Проект помогает закрепить работу с DOM и событиями.
+            </p>
+
+            <div class="modal__image">
+                <img src="../images/project2.png" alt="Скриншот todo-приложения">
+            </div>
+
+            <div class="modal__links">
+                <a href="#" target="_blank" class="contacts__button">
+                    Живая версия
+                </a>
+                <a href="#" target="_blank" class="modal__link">
+                    Исходный код
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модалка проекта 3 -->
+    <div class="modal" id="project3">
+        <div class="modal__content">
+            <a href="projects.html" class="modal__close" aria-label="Закрыть">&times;</a>
+            <h2 class="modal__title">Каталог товаров</h2>
+            <p class="modal__tags">HTML • CSS</p>
+            <p>
+                Страница каталога с карточками товаров и разными состояниями: обычное,
+                выбранное, при наведении и со скидкой. Основана на практическом задании по верстке.
+            </p>
+
+            <div class="modal__image">
+                <img src="../images/project3.png" alt="Скриншот каталога товаров">
+            </div>
+
+            <div class="modal__links">
+                <a href="#" target="_blank" class="contacts__button">
+                    Живая версия
+                </a>
+                <a href="#" target="_blank" class="modal__link">
+                    Исходный код
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модалка проекта 4 -->
+    <div class="modal" id="project4">
+        <div class="modal__content">
+            <a href="projects.html" class="modal__close" aria-label="Закрыть">&times;</a>
+            <h2 class="modal__title">Интернет-магазин</h2>
+            <p class="modal__tags">React</p>
+            <p>
+                Прототип интернет-магазина с базовой фильтрацией и корзиной. Проект
+                показывает работу с компонентами, состоянием и взаимодействием с данными.
+            </p>
+
+            <div class="modal__image">
+                <img src="../images/project4.png" alt="Скриншот интернет-магазина">
+            </div>
+
+            <div class="modal__links">
+                <a href="#" target="_blank" class="contacts__button">
+                    Живая версия
+                </a>
+                <a href="#" target="_blank" class="modal__link">
+                    Исходный код
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

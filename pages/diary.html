@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный сайт студента — Учебный дневник</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+<body>
+    <div class="page">
+        <!-- ===== ШАПКА ===== -->
+        <header class="header">
+    <div class="header__content">
+        <img src="../images/icons/logo.png" alt="Логотип" class="header__logo">
+        <div class="header__info">
+            <div class="header__name">Скворцов Александр</div>
+            <div class="header__role">Студент ЭФБО-07-24</div>
+        </div>
+    </div>
+        </header>
+
+        <!-- ===== НАВИГАЦИЯ ===== -->
+        <nav class="nav">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="../index.html" class="nav__link">Главная</a>
+                </li>
+                <li class="nav__item">
+                    <a href="projects.html" class="nav__link">Проекты</a>
+                </li>
+                <li class="nav__item nav__item--active">
+                    <a href="diary.html" class="nav__link">Дневник</a>
+                </li>
+                <li class="nav__item">
+                    <a href="contacts.html" class="nav__link">Контакты</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+        <main class="main">
+            <section class="diary">
+                <h2 class="diary__title">Мой учебный прогресс</h2>
+
+                <!-- Список записей -->
+                <div class="diary__list">
+                    <div class="diary-item diary-item--done">
+                        <div class="diary-item__date">15 дек</div>
+                        <div class="diary-item__text">Верстка макета сайта</div>
+                        <div class="diary-item__status">✓</div>
+                    </div>
+
+                    <div class="diary-item diary-item--done">
+                        <div class="diary-item__date">10 дек</div>
+                        <div class="diary-item__text">JavaScript — основы</div>
+                        <div class="diary-item__status">✓</div>
+                    </div>
+
+                    <div class="diary-item diary-item--progress">
+                        <div class="diary-item__date">05 дек</div>
+                        <div class="diary-item__text">Работа с формами</div>
+                        <div class="diary-item__status">in progress</div>
+                    </div>
+
+                    <div class="diary-item diary-item--progress">
+                        <div class="diary-item__date">01 дек</div>
+                        <div class="diary-item__text">Адаптивный дизайн</div>
+                        <div class="diary-item__status">in progress</div>
+                    </div>
+                </div>
+
+                <!-- Текущие курсы -->
+                <h3 class="diary__subtitle">Текущие курсы</h3>
+
+                <div class="courses">
+                    <div class="course">
+                        <div class="course__label">
+                            <span>Веб-разработка</span>
+                            <span class="course__value">90%</span>
+                        </div>
+                        <div class="course__bar">
+                            <div class="course__fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="course">
+                        <div class="course__label">
+                            <span>JavaScript</span>
+                            <span class="course__value">70%</span>
+                        </div>
+                        <div class="course__bar">
+                            <div class="course__fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="course">
+                        <div class="course__label">
+                            <span>React</span>
+                            <span class="course__value">50%</span>
+                        </div>
+                        <div class="course__bar">
+                            <div class="course__fill" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Кнопка добавить запись (пока без логики) -->
+                <button class="diary__add-button" type="button">
+                    Добавить запись
+                </button>
+            </section>
+        </main>
+
+        <!-- ===== ПОДВАЛ ===== -->
+        <footer class="footer">
+            <p>© 2025 Личный сайт студента. Контакты смотрите на соответствующей странице.</p>
+        </footer>
+    </div>
+</body>
+</html>
